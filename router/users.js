@@ -1,7 +1,8 @@
 const express = require('express')
+const jwt = require('jsonwebtoken')
 const user = require('../model/user')
 const router = express.Router()
-// const User = require('../model/user')
+
 
 router.post('/auth',(req,res,next)=>{
     const email =req.body.email;
@@ -31,10 +32,19 @@ router.post('/auth',(req,res,next)=>{
                 message:"failed: enValid Password"
                 })
             }
+   const ONE_WEEK=604800;
+   const token = jwt.sign({user},process.env.SECRET,{expiresIn:ONE_WEEK});
+
+            let returnUser ={
+                name :user.name,
+                email: user.email,
+                id: user.id,
+                token:token
+            }
             return res.send({
                 success:true,
                 message:"You can login naw",
-                user:user
+                user:returnUser
             })
         })
     })

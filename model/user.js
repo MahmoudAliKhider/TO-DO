@@ -8,6 +8,10 @@ const userSchema = mongoose.Schema({
 })
 userSchema.pre('save', function(next){
     //generate salt value
+    if(this.isModified('password')){
+        return next();
+    }
+    
     bcrypt.genSalt(10,(err,salt)=>{
         if(err){
             return nodeTest(err)

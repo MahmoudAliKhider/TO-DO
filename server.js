@@ -3,6 +3,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
 const userRouter = require('./router/users')
+const taskRouter = require('./router/task')
+const passport = require("passport")
 
 const app = express();
 try {
@@ -16,11 +18,22 @@ try {
       console.error(error);
     }
 
+//middelware///
 app.use(bodyparser.json())
+app.use(passport.initialize())
+app.use(passport.session())
+
+require('./config/pasport')(passport)
+
+
+
+
 app.get('/',(req,res,next)=>{
     res.send("Mahmoud Ali khider")
 })
 app.use("/user",userRouter)
+app.use("/task",taskRouter)
+
 
 
  const _port= process.env.PORT
