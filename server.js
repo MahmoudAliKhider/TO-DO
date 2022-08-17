@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
+const userRouter = require('./router/users')
 
 const app = express();
 try {
@@ -16,6 +17,10 @@ try {
     }
 
 app.use(bodyparser.json())
+app.get('/',(req,res,next)=>{
+    res.send("Mahmoud Ali khider")
+})
+app.use("/user",userRouter)
 
 
  const _port= process.env.PORT
