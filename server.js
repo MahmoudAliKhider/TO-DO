@@ -5,10 +5,11 @@ const bodyparser = require('body-parser')
 const userRouter = require('./router/users')
 const taskRouter = require('./router/task')
 const passport = require("passport")
+const session = require('express-session');
 
 const app = express();
 try {
-    const connect =  mongoose.connect(process.env.DATABASE,{
+    const connect =  mongoose.connect("mongodb://0.0.0.0:27017/todoapp",{
         useNewUrlParser:true
     }).connection
 
@@ -20,10 +21,14 @@ try {
 
 //middelware///
 app.use(bodyparser.json())
+
+//app.use(session({  }));
+//app.use(express.session({ secret: 'SECRET' })); 
+app.use(session({ secret: 'melody hensley is my spirit animal' }));
 app.use(passport.initialize())
 app.use(passport.session())
 
-require('./config/pasport')(passport)
+require('./config/passport')(passport)
 
 
 
@@ -36,7 +41,7 @@ app.use("/task",taskRouter)
 
 
 
- const _port= process.env.PORT
+ const _port= 3000;
  app.listen(_port ,()=>{
     console.log(`connected in port 3000 `)
  } )

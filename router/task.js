@@ -10,7 +10,7 @@ router.post('/list',(req,res,next)=>{
     res.send("list task")
 })
 //delete task
-router.delete('/remove/id',(req,res,next)=>{
+router.delete('/remove/:id',(req,res,next)=>{
     res.send("remove")
 })
 
