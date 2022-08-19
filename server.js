@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
 const userRouter = require('./router/users')
 const taskRouter = require('./router/task')
+const path = require('path')
+const cors = require('cors')
 const passport = require("passport")
 const session = require('express-session');
 
@@ -20,6 +22,7 @@ try {
     }
 
 //middelware///
+app.use(cors())
 app.use(bodyparser.json())
 
 //app.use(session({  }));
@@ -31,7 +34,7 @@ app.use(passport.session())
 require('./config/passport')(passport)
 
 
-
+app.use(express.static(path.join(__dirname,'public')))
 
 app.get('/',(req,res,next)=>{
     res.send("Mahmoud Ali khider")
