@@ -12,6 +12,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 
 const AppRoutes :Routes=[
+  {path:"",component:HomeComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent}
 
