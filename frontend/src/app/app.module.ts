@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
 import {  HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
 
 const AppRoutes :Routes=[
   {path:"login",component:LoginComponent},
@@ -21,7 +22,8 @@ const AppRoutes :Routes=[
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
