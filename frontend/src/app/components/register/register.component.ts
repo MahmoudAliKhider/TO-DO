@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FlashMessageModule } from 'jjwins-angular-12-flash-message';
+//import { FlashMessageModule } from 'jjwins-angular-12-flash-message';
 
 @Component({
   selector: 'app-register',
@@ -19,8 +19,13 @@ export class RegisterComponent implements OnInit {
   }
   onRegister(){
     if(!this.email|| !this.name||! this.password){
-      console.log("Are Required");
+     alert("your detalis not completed")
       
+    }
+    const user={
+     name:this.name,
+     email:this.email,
+     password:this.password
     }
   }
 
