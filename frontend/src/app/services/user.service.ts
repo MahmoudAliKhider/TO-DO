@@ -33,4 +33,9 @@ export class UserService {
   isLoggedIn() :boolean{
    return !!localStorage.getItem("AuthToken")
   }
+  logout(){
+    localStorage.removeItem("AuthToken");
+    localStorage.removeItem("mean_user");
+
+  }
 }
