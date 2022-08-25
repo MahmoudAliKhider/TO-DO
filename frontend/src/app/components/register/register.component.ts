@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 //import { FlashMessageModule } from 'jjwins-angular-12-flash-message';
 
 @Component({
@@ -11,7 +13,7 @@ export class RegisterComponent implements OnInit {
  email : string='';
  password :string='';
 
-  constructor() {
+  constructor( private userservice:UserService , private router:Router) {
    
    }
 
@@ -27,6 +29,13 @@ export class RegisterComponent implements OnInit {
      email:this.email,
      password:this.password
     }
+    this.userservice.createAccount(user).subscribe(
+      res=>{
+       alert("Success")
+       return this.router.navigate(['/login'])
+      }
+    
+    )
   }
 
 }

@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
 import {  HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
-
+import { UserService } from './services/user.service';
 const AppRoutes :Routes=[
   {path:"",component:HomeComponent},
   {path:"login",component:LoginComponent},
@@ -36,7 +36,9 @@ const AppRoutes :Routes=[
   
     
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
