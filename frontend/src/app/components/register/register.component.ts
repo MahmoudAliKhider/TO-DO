@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
  name :string ='';
  email : string='';
  password :string='';
+ dataRegister:any={}
 
   constructor( private userservice:UserService , private router:Router) {
    
@@ -20,9 +21,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   onRegister(){
+    
     if(!this.email|| !this.name||! this.password){
-     alert("your detalis not completed")
-      
+      alert("your detalis not completed") 
+      return ;
     }
     const user={
      name:this.name,
@@ -30,9 +32,17 @@ export class RegisterComponent implements OnInit {
      password:this.password
     }
     this.userservice.createAccount(user).subscribe(
-      res=>{
-       alert("Success")
-       return this.router.navigate(['/login'])
+      (resb:any)=>{
+       
+        if(!resb.success){
+          alert("your email or pass  wrong")
+        return false;    
+        }else{
+        alert("success")
+          return this.router.navigate(['/login']);
+          
+        }
+          
       }
     
     )
