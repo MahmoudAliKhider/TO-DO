@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlashMessageModule } from 'jjwins-angular-12-flash-message';
 
 @Component({
   selector: 'app-register',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+ name :string ='';
+ email : string='';
+ password :string='';
 
-  constructor() { }
+  constructor() {
+   
+   }
 
   ngOnInit(): void {
+  }
+  onRegister(){
+    if(!this.email|| !this.name||! this.password){
+      console.log("Are Required");
+      
+    }
   }
 
 }
