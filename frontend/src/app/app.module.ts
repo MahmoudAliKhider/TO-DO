@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { UserService } from './services/user.service';
 import { MainComponent } from './components/main/main.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AddTaskComponent } from './components/add-task/add-task.component';
 const AppRoutes :Routes=[
   {path:"",component:HomeComponent},
   {path:"main",component:MainComponent,canActivate:[AuthGuard]},
@@ -29,7 +30,8 @@ const AppRoutes :Routes=[
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    MainComponent
+    MainComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,

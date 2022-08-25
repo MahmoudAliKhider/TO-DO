@@ -20,7 +20,7 @@
         <ul class="nav navbar-nav navbar-right">
            <li *ngIf="!userservice.isLoggedIn()" [routerLinkActive]="['active']"> <a [routerLink] = "['/login']"> Login</a></li>
            <li *ngIf="!userservice.isLoggedIn()" [routerLinkActive]="['active']"> <a [routerLink] = "['/register']"> register</a></li>
-           <li *ngIf="userservice.isLoggedIn()"><a (click)="onLoggedOut()"> Logout</a></li>
+           <li *ngIf="userservice.isLoggedIn()"><a href="#" (click)="onLoggedOut()"> Logout</a></li>
 
 
             

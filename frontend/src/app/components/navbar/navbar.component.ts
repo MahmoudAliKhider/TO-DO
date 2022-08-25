@@ -14,7 +14,8 @@ export class NavbarComponent implements OnInit {
   }
   onLoggedOut(){
     this.userservice.logout();
-    this.router.navigate(['/login'])
+    this.router.navigate(['login'])
+    return false;
   }
 
 }
