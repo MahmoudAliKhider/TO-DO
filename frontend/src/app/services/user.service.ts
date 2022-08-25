@@ -31,6 +31,6 @@ export class UserService {
   }
 
   isLoggedIn() :boolean{
-   return !localStorage.getItem("AuthToken")
+   return !!localStorage.getItem("AuthToken")
   }
 }

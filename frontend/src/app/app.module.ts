@@ -12,9 +12,10 @@ import {  HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { UserService } from './services/user.service';
 import { MainComponent } from './components/main/main.component';
+import { AuthGuard } from './guards/auth.guard';
 const AppRoutes :Routes=[
   {path:"",component:HomeComponent},
-  {path:"main",component:MainComponent},
+  {path:"main",component:MainComponent,canActivate:[AuthGuard]},
 
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent}
@@ -41,7 +42,8 @@ const AppRoutes :Routes=[
     
   ],
   providers: [
-    UserService
+    UserService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
