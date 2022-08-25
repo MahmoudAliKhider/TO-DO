@@ -34,7 +34,7 @@ password:String="";
     return false;    
     }else{
   
-      this.userservice.saveUserData(res.token,user); 
+      this.userservice.saveUserData(res.token,res.user); 
       console.log(res)
       return this.router.navigate(['/main']);
       

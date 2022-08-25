@@ -38,4 +38,7 @@ export class UserService {
     localStorage.removeItem("mean_user");
 
   }
+  getCurrentUser(){
+    return JSON.parse(localStorage.getItem("mean_user")||"{}");
+  }
 }
