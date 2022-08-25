@@ -25,6 +25,7 @@ export class MainComponent implements OnInit {
     if(!res.success){
       alert(res.message)
     }else{
+      this.Taskes();
       alert("Task Deleted")
     }
     this.router.navigate(['/main'])
