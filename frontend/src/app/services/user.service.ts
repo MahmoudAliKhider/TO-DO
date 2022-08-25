@@ -29,4 +29,8 @@ export class UserService {
   localStorage.setItem("mean_user",JSON.stringify(user));
 
   }
+
+  isLoggedIn() :boolean{
+   return !localStorage.getItem("AuthToken")
+  }
 }
